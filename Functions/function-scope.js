@@ -4,15 +4,15 @@
 //Lembrando que uma variável declarada sem atribuição, por padrão é undefined
 let pensamento
 
-//Como a função não tem parâmetro declarado, neste caso a atribuição é feita a variável 'pensamento' fora da função.
+//Como a função não tem parâmetro declarado, neste caso a atribuição é feita na variável 'pensamento' fora da função.
 function criarPensamento() {
     //Lembrando sem o uso da palavra return, afunção devolve undefined
     return pensamento = "Estudando!"
 }
 
-console.log(pensamento)
-console.log(criarPensamento())
-console.log(pensamento)
+console.log(pensamento)//retorna undefined
+console.log(criarPensamento())//retorna o novo valor
+console.log(pensamento)//retorna o valor atualizado
 
 console.log('\n')
 
