@@ -47,3 +47,26 @@ let roupa1 = new Produto(
 
 console.log(roupa1)
 console.log(roupa1.mostrarInformacoes())
+
+
+
+function Carro(marca, modelo, ano, cor) {
+    this.marca = marca
+    this.modelo = modelo
+    this.ano = ano
+    this.cor = cor
+
+    this.ligar = function(){
+        return 'O carro '+ this.modelo + ' está ligado.'
+    }
+
+    this.desligado = function(){
+        return 'O carro '+ this.modelo + ' está desligado.'
+    }
+}
+
+let carro1 = new Carro('Renoult', 'Logan', 2000, 'prata')
+let carro2 = new Carro('Chevrolet', 'Onix', 2010, 'branco')
+
+console.log(carro1.ligar())
+console.log(carro2.desligado())
