@@ -66,7 +66,6 @@ const pedidosAtualizados = pedidos.map((pedido) => {
                     ...pedido.cliente.endereco,
                     cidade: "Belém"
                 }
-
             },
             produto: {
                 ...pedido.produto,
