@@ -1,3 +1,11 @@
+/*
+3. Closure para executar uma função apenas uma vez
+Imagine que seu e-commerce precisa carregar uma configuração inicial.
+
+Você não quer executar essa inicialização repetidamente quando diferentes partes da aplicação solicitarem essa configuração.
+
+Podemos criar uma função que só executa sua operação uma vez.
+*/
 function executarUmaVez(funcao) {
 
     let executada = false

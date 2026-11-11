@@ -1,4 +1,5 @@
 /*
+1. Closure para criar funções configuráveis
 Imagine que você está desenvolvendo um e-commerce e precisa aplicar descontos diferentes para cada categoria de produto.
 
 Em vez de criar várias funções praticamente iguais, podemos utilizar Closure para criar funções configuráveis.
