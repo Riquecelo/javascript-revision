@@ -24,4 +24,10 @@ const valorTotal = valoresTotalProdutos.reduce((acumulador, numero) => {
     return acumulador + numero
 },0)
 
-console.log(valorTotal)
+console.log('valorTotal ===>', valorTotal)
+
+const valorTotal2 = produtos.reduce((acumulador, produto) => {
+    return acumulador = acumulador + produto.preco * produto.estoque
+},0)
+
+console.log('valorTotal2 ===>', valorTotal2)

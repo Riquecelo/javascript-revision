@@ -10,9 +10,18 @@ const produtos = [
     { nome: "Monitor", preco: 1200 }
 ];
 
-produtos.sort((a,b) => a.preco - b.preco)
+/* produtos.sort((a,b) => a.preco - b.preco)
 
 produtos.sort((a,b) => a.nome.localeCompare(b.nome))
+*/
+console.log(produtos) 
 
-console.log(produtos)
+//aplicando o conceito de imutabilidade
 
+const produtosOrdenados = produtos.map((produto) => {
+    return {
+        ...produto
+    }
+}).sort((a,b) => a.preco - b.preco)
+
+console.log(produtosOrdenados)
