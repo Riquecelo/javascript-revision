@@ -10,13 +10,38 @@
         height: 100vh;
         width: 100vw;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        
+        flex-direction: column;
+
+        section{
+            display: flex;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            
+            div{
+                height: auto;
+                width: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                img{
+                    height: 150px;
+                    width: 100%;
+                }
+            }
+        }
     }
 </style>
 <body>
-    <input type="text" id="pesquisa" placeholder="Buscar">
+    <header>
+        <h1>Teste busca produtos</h1>
+        <input type="text" id="buscar" placeholder="Busca">
+        <button>Limpar</button>
+    </header>
+    <section>
+
+    </section>
 </body>
 </html>
 <script src="/Debounce/exer-debounce2.js"></script>
