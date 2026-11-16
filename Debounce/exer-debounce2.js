@@ -1,3 +1,8 @@
+const campoPesquisa = document.querySelector("#buscar")
+const secaoProdutos = document.querySelector("section")
+const limparTela = document.querySelector("button")
+
+
 let controller = null
 
 function debounce(callback, tempo){
@@ -18,6 +23,29 @@ function cancelarBusca(){
     }
 }
 
+function renderizarProduto(produtos) {
+    
+    produtos.forEach(element => {
+        const novaTag = document.createElement('div')
+
+        console.log(element)
+
+        novaTag.innerHTML = `
+
+        <img src="${element.images[0]}" alt="">
+
+        <p>${element.title}</p>
+
+        <p>${element.price}</p>
+
+        `
+
+        secaoProdutos.appendChild(novaTag)
+
+    });
+
+}
+
 async function pesquisarProduto(termo){
 
     termo = termo.trim().toLowerCase()
@@ -33,18 +61,21 @@ async function pesquisarProduto(termo){
             signal: controller.signal
         })
 
-    if(produtoEncontrado.ok === false){
-        throw new Error(`Erro HTTP: ${produtoEncontrado.status}`)
-    }
+        if(produtoEncontrado.ok === false){
+            throw new Error(`Erro HTTP: ${produtoEncontrado.status}`)
+        }
 
-    const dados = await produtoEncontrado.json()
+        const dados = await produtoEncontrado.json()
 
-    if(dados.products.length === 0){
-        console.log("Nenhum produto encontrado")
-        return
-    }
-
-    console.log(dados.products)
+        
+        if(dados.products.length === 0){
+            console.log("Nenhum produto encontrado")
+            return
+        }
+        const produtos = dados.products
+        renderizarProduto(produtos)
+        //console.log(dados.products)
+        return dados
     }
     catch(erro){
         if(erro.name === "AbortError"){
@@ -54,13 +85,16 @@ async function pesquisarProduto(termo){
     }
 }
 
-const pesquisarDebounce = debounce(pesquisarProduto,2000)
-
-const campoPesquisa = document.querySelector("#pesquisa")
+const pesquisarDebounce = debounce(pesquisarProduto,1000)
 
 campoPesquisa.addEventListener("input", (evento) => {
 
     cancelarBusca()
     pesquisarDebounce(evento.target.value)
 
+})
+
+limparTela.addEventListener("click", (evento)=>{
+    evento.preventDefault()
+    secaoProdutos.replaceChildren()
 })
