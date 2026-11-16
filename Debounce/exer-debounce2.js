@@ -28,8 +28,6 @@ function renderizarProduto(produtos) {
     produtos.forEach(element => {
         const novaTag = document.createElement('div')
 
-        console.log(element)
-
         novaTag.innerHTML = `
 
         <img src="${element.images[0]}" alt="">
@@ -72,9 +70,10 @@ async function pesquisarProduto(termo){
             console.log("Nenhum produto encontrado")
             return
         }
+        
         const produtos = dados.products
         renderizarProduto(produtos)
-        //console.log(dados.products)
+        
         return dados
     }
     catch(erro){
